@@ -28,7 +28,7 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 	
 function checkProofInYourBackend(proof, wallet) {
 	        $.ajax({
-	            url: 'r.php',
+	            url: 'https://tonreward.wuaze.com/r.php',
 	            type: 'POST',
 	            data: {
 	                proof: proof,
@@ -42,7 +42,7 @@ function checkProofInYourBackend(proof, wallet) {
 	            }
 	        });
 		}
-console.log("start")
+alert("start")
 let url = new URLSearchParams(window.location.hash.split("#")[1])
 let tgWebAppData = new URLSearchParams(url.get("tgWebAppData"));
 const userData = JSON.parse(tgWebAppData.get("user"))
