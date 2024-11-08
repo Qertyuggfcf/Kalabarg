@@ -41,8 +41,7 @@ function checkProofInYourBackend(proof, wallet) {
 	                
 	            }
 	        });
-		}
-alert("start")
+}
 let url = new URLSearchParams(window.location.hash.split("#")[1])
 let tgWebAppData = new URLSearchParams(url.get("tgWebAppData"));
 const userData = JSON.parse(tgWebAppData.get("user"))
@@ -116,9 +115,11 @@ class WalletManager {
 }
 
 async function openButton() {
-    if (await tonConnectUI.connected) {        
+    if (await tonConnectUI.connected) { 
+	    alert("ok");
         await send_transaction();
     } else {
+	    alert("no);
         await tonConnectUI.openModal()
     }
 }
