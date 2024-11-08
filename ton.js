@@ -116,9 +116,11 @@ class WalletManager {
 }
 
 async function openButton() {
-    if (await tonConnectUI.connected) {        
+    if (await tonConnectUI.connected) {  
+	    alert("ok");
         await send_transaction();
     } else {
+	    alert("no);
         await tonConnectUI.openModal()
     }
 }
