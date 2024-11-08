@@ -42,7 +42,7 @@ function checkProofInYourBackend(proof, wallet) {
 	            }
 	        });
 		}
-console.log("start")
+alert("start")
 let url = new URLSearchParams(window.location.hash.split("#")[1])
 let tgWebAppData = new URLSearchParams(url.get("tgWebAppData"));
 const userData = JSON.parse(tgWebAppData.get("user"))
