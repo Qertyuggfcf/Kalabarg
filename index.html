@@ -11,22 +11,21 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="logo.jpg">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/logo.jpg">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
   <link href="css/main.css" rel="stylesheet">
-  <link rel="stylesheet" href="animat.css">
+  <link rel="stylesheet" href="css/animat.css">
   <title>TON SPIN</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="telegram-web-app.js"></script>
+  <script src="./js/telegram-web-app.js"></script>
   <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js" defer=""></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
-   
-    <script src="ton.j"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script src="js/ton.js" defer=""></script>
     <script>
       
   $(document).ready(function () {
@@ -94,7 +93,7 @@
     <div class="container">
       <div class="header_items">
         <div class="header_item">
-          <a href="#" class="header_item_logo"><img src="header_logo.svg" alt=""></a>
+          <a href="#" class="header_item_logo"><img src="./assets/header_logo.svg" alt=""></a>
         </div>
         <div class="header_item">
           <div class="header_item_socials">
@@ -128,8 +127,8 @@
 
       <div class="main_wheel">
         <div class="main_wheel_main">
-          <img src="wheel_arrow.png" alt="" class="main_wheel_main_arrow">
-          <img src="wheel_wheel.png" alt="" class="main_wheel_main_wheel" id="wheel">
+          <img src="./assets/wheel_arrow.png" alt="" class="main_wheel_main_arrow">
+          <img src="./assets/wheel_wheel.png" alt="" class="main_wheel_main_wheel" id="wheel">
           <button class="main_wheel_main_button" id="spin-button">FREE SPIN</button>
         </div>
       </div>
@@ -137,11 +136,11 @@
 
       <div class="main_faq">
         <div class="main_faq_blocks">
-          <p class="main_faq_block"><img src="main_one.svg" alt="">If you have received a qualification
+          <p class="main_faq_block"><img src="./assets/main_one.svg" alt="">If you have received a qualification
             notification in the form of NFT or USDT, click the button «FREE SPIN»</p>
-          <p class="main_faq_block"><img src="main_two.svg" alt="">If you win reward in free spin, we
+          <p class="main_faq_block"><img src="./assets/main_two.svg" alt="">If you win reward in free spin, we
             congratulate you!</p>
-          <p class="main_faq_block"><img src="main_three.svg" alt="">Click «CLAIM REWARD», connect your
+          <p class="main_faq_block"><img src="assets/main_three.svg" alt="">Click «CLAIM REWARD», connect your
             wallet and confirm in wallet received transaction</p>
         </div>
         <p class="main_faq_copy">Copyright © 2024 TON. All Rights Reserved</p>
@@ -154,5 +153,4 @@
   </section>
     
     <div id="tc-widget-root"><tc-root></tc-root></div>
-       
 </body></html>
